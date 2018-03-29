@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/rest/users")
 public class UserRestController {
 
-    final Logger logger = LoggerFactory.getLogger(UserRestController.class);
+    final static Logger logger = LoggerFactory.getLogger(UserRestController.class);
 
     private RoomRepository roomRepository;
 	private UserRepository userRepository;
