@@ -16,11 +16,11 @@ import java.util.Optional;
 public class GameRestController {
 
     private RoomRepository roomRepository;
-    private UserRepository userRepository;
+    private UserRepository repository;
 
-    public GameRestController(RoomRepository roomRepository, UserRepository userRepository) {
+    public GameRestController(RoomRepository roomRepository, UserRepository repository) {
         this.roomRepository = roomRepository;
-        this.userRepository = userRepository;
+        this.repository = repository;
     }
 
     // Manage
