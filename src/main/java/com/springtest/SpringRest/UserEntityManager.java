@@ -8,8 +8,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Component;
 
-@SpringBootApplication
+@Component
 public class UserEntityManager implements CommandLineRunner {
 
     private static final Logger log = LoggerFactory.getLogger(UserEntityManager.class);
@@ -46,16 +47,16 @@ public class UserEntityManager implements CommandLineRunner {
 
         Room room = new Room();
 
-        User john = new User("John");
-        User bob = new User("Bob");
-        User steve = new User("Steve");
+//        User john = new User("John");
+//        User bob = new User("Bob");
+//        User steve = new User("Steve");
 //        john.setRoom(room);
 //        bob.setRoom(room);
 
-        this.roomRepository.save(room);
-        this.userRepository.save(john);
-        this.userRepository.save(bob);
-        this.userRepository.save(steve);
+//        this.roomRepository.save(room);
+//        this.userRepository.save(john);
+//        this.userRepository.save(bob);
+//        this.userRepository.save(steve);
     }
 
 }

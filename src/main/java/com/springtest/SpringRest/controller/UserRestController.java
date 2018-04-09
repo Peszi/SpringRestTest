@@ -39,7 +39,7 @@ public class UserRestController {
     @RequestMapping(value = "/{username}", method = RequestMethod.POST)
     ResponseEntity<?> registerUser(@PathVariable String username) {
         this.validateUserNotExists(username);
-        this.userRepository.save(new User(username));
+//        this.userRepository.save(new User(username));
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().build().toUri();
         return ResponseEntity.created(location).body(username + " created!");
     }

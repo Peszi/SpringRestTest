@@ -14,18 +14,18 @@ import org.springframework.messaging.MessageChannel;
 @Configuration
 public class IntegrationConfig {
 
-    @Bean
-    public UdpService udpService() {
-        return new UdpService();
-    }
+//    @Bean
+//    public UdpService udpService() {
+//        return new UdpService();
+//    }
 
-    @Bean
-    public IntegrationFlow processUdpMessage() {
-        UnicastReceivingChannelAdapter unicastReceivingChannelAdapter = new UnicastReceivingChannelAdapter(8000);
-        return IntegrationFlows.from(unicastReceivingChannelAdapter)
-                .handle("udpService", "receiveData")
-                .get();
-    }
+//    @Bean
+//    public IntegrationFlow processUdpMessage() {
+//        UnicastReceivingChannelAdapter unicastReceivingChannelAdapter = new UnicastReceivingChannelAdapter(8000);
+//        return IntegrationFlows.from(unicastReceivingChannelAdapter)
+//                .handle("udpService", "receiveData")
+//                .get();
+//    }
 
 //    @Bean
 //    public IntegrationFlow udpOutFlow() {

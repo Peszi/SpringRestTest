@@ -27,8 +27,8 @@ public class UdpService {
     DatagramSocket socket;
     DatagramPacket packet;
 
-    @Autowired
-    private MessageChannel sender;
+//    @Autowired
+//    private MessageChannel sender;
 
     private Message message;
 

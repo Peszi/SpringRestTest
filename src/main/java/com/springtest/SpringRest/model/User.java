@@ -1,7 +1,9 @@
 package com.springtest.SpringRest.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
 
@@ -14,7 +16,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique=true)
     private String username;
+    @JsonIgnore
+    private String password;
+    private String apiKey;
 
     @ManyToOne(targetEntity = Room.class, cascade = CascadeType.MERGE)
     @JoinColumn(name = "room_id", referencedColumnName = "id")
@@ -23,8 +29,9 @@ public class User {
 
     public User() {}
 
-    public User(final String username) {
+    public User(String username, String password) {
         this.username = username;
+        this.password = password;
     }
 
     public void setId(Long id) {
@@ -41,6 +48,19 @@ public class User {
 
     public String getUsername() {
         return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public User setApiKey(String apiKey) {
+        this.apiKey = apiKey;
+        return this;
+    }
+
+    public String getApiKey() {
+        return apiKey;
     }
 
     public void setRoom(Room room) {
@@ -115,5 +135,16 @@ public class User {
     @Override
     public int hashCode() {
         return id != null ? id.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", apiKey='" + apiKey + '\'' +
+                ", room=" + room +
+                '}';
     }
 }
